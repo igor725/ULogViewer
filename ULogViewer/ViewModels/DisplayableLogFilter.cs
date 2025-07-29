@@ -443,7 +443,7 @@ class DisplayableLogFilter : BaseDisplayableLogProcessor<DisplayableLogFilter.Fi
             return true;
 
         // check level
-        bool areOtherConditionsMatched = (level == LogLevel.Undefined || log.Level == level);
+        bool areOtherConditionsMatched = (level == LogLevel.Undefined || log.Level >= level);
         if (areOtherConditionsMatched && token.ProcessId.HasValue && token.HasLogProcessId)
             areOtherConditionsMatched = (token.ProcessId == log.ProcessId);
         if (areOtherConditionsMatched && token.ThreadId.HasValue && token.HasLogThreadId)
